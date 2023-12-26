@@ -1,0 +1,92 @@
+$azulprimario: rgb(0, 66, 119);
+$amarilloprimario: rgb(255, 204, 00);
+$blancoprimario: white;
+$negroprimario: rgb(28, 28, 28);
+$fontSans: 'Source Sans 3', sans-serif;
+
+input{
+    background-color: white;
+    color: $negroprimario;
+}
+
+.form-columns-single {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .columns {
+        display: flex;
+        flex-direction: column;
+        vertical-align: middle;
+        align-content: center;
+        gap: 20px;
+
+        .form-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            i {
+                margin-right: 10px;
+            }
+
+            background-color: white;
+        }
+    }
+
+}
+
+.form-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+
+    .columns {
+        display: flex;
+        flex-direction: column;
+        vertical-align: middle;
+        align-content: center;
+        gap: 20px;
+
+        .form-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            color: black;
+
+            i {
+                margin-right: 10px;
+            }
+
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+
+}
+
+.form-group {
+    margin-bottom: 1rem;
+
+    .error-message {
+        color: red;
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+    }
+
+    .input-error {
+        border: 1px solid red;
+    }
+}
+
+.text-danger{
+    color: red;
+}
+
+.form-dialog{
+    width: 50%;
+    height: 70%;
+}

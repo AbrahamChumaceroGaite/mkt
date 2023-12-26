@@ -1,0 +1,77 @@
+<div class="main-container">
+
+    <div class="container-item">
+        <br>
+        <h2>EN ESPERA: 12
+        </h2>
+        <p-scrollPanel styleClass="customPanel-attention">
+            @for (item of onWaitList; track item.id ) {
+            <div class="ticket-card-wait">
+                <div class="ticket-card-content">
+                    <div class="ticket-card-title">
+                        <i class='bx bx-male'></i>
+                        <span>{{item.ticket}}</span>
+                    </div>
+
+                    <div class="ticket-card-name">
+                        <span>{{item.name}}</span>
+                    </div>
+
+                    <div class="custom-button-space">
+
+                        <pButton pButton pRipple type="button" [loading]="loading"
+                            class="p-button-rounded p-button-danger">
+                            <i class="pi pi-times"></i>
+                        </pButton>
+
+                        <button pButton pRipple type="button" [loading]="loading"
+                            class="p-button-rounded p-button-success">
+                            <i class="pi pi-check"></i></button>
+                    </div>
+                </div>
+            </div>
+            }
+        </p-scrollPanel>
+    </div>
+
+    <div class="container-item">
+        <br>
+        <div class="ticket-card-info">
+            <div class="ticket-card-content">
+                <div class="ticket-card-title">
+                    <i class='bx bx-male'></i>
+                    <span>Nombre: </span>
+                </div>
+
+                <div class="ticket-card-asist">
+                    <span>Numero: </span>
+                </div>
+
+
+                <div class="ticket-card-asist">
+                    <span>Tipo de Atención: </span>
+                </div>
+
+
+                <div class="ticket-card-asist">
+                    <span>Representante: </span>
+                </div>
+
+                <div class="ticket-card-asist">
+                    <span>Colegio: </span>
+                </div>
+
+                <div class="ticket-card-asist">
+                    <span>Carrera de Interes: </span>
+                </div>
+
+                <button pButton pRipple type="button" style="margin-left:15px" [loading]="loading" class="p-button-rounded p-button-success">
+                    <i class="pi pi-pencil"></i></button>
+            </div>
+        </div>
+        <br>
+
+
+    </div>
+
+</div>

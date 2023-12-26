@@ -1,0 +1,64 @@
+<div class="main-container">
+
+    <div class="container-item">
+        <br>
+        <div class="custom-button-space">
+            <h2>EN ESPERA: 12</h2>
+                <button pButton pRipple type="button" class="p-button-rounded p-button-success" styleClass="p-button-sm"
+                    (click)="addPerson()"> 
+                    <i class="pi pi-user-plus" style="font-size: 0.7rem"></i>
+                </button>
+        </div>
+     
+        
+        <p-scrollPanel styleClass="customPanel">
+
+            @for (item of onWaitList; track item.id ) {
+            <div class="ticket-card-wait">
+                <div class="ticket-card-content">
+                    <div class="ticket-card-title">
+                        <i class='bx bx-male'></i>
+                        <span>{{item.ticket}}</span>
+                    </div>
+
+                    <div class="ticket-card-name">
+                        <span>{{item.name}}</span>
+                    </div>
+                </div>
+            </div>
+            }
+        </p-scrollPanel>
+        <img src="assets/images/qr.svg" alt="lobby" class="lobby-img">
+    </div>
+
+    <div class="container-item">
+        <br>
+        <video controls autoplay loop>
+            <source src="assets/media/demo.mp4" type="video/mp4">
+        </video>
+        <br>
+
+        <div class="container-attention">
+            @for (item of onWaitList; track item.id ) {
+            <div class="ticket-card-attention">
+                <div class="ticket-card-content">
+                    <div class="ticket-card-title">
+                        <i class='bx bx-male'></i>
+                        <span>{{item.ticket}}</span>
+                    </div>
+
+                    <div class="ticket-card-asist">
+                        <span>ASISTENTE </span>
+                    </div>
+
+                    <div class="ticket-card-name">
+                        <span>{{item.name}}</span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+
+    </div>
+
+</div>
