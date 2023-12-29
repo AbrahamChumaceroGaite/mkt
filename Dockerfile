@@ -7,5 +7,5 @@ COPY . .
 RUN npm run build
 
 FROM nginx:alpine
-COPY --from=angular /ng-app/dist/mkt/browser /usr/share/nginx/html
+COPY --from=angular /ng-app/dist/mkt-front /usr/share/nginx/html
 EXPOSE 80
