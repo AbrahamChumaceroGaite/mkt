@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
     .main-container{
         display: grid;
         grid-template-columns: 100%;
@@ -56,7 +56,7 @@
 
     .ticket-card-info {
         width: 100%;
-        height: 500px;
+        height: 800px;
         background-color: $azulprimario;
         border: solid 5px $amarilloprimario;
         border-radius: 25px;
@@ -82,7 +82,7 @@
     
             .ticket-card-asist{
                 span{
-                    margin: 10px;
+                    margin: 15px;
                     font-size: 1.8rem;
                     font-weight: bold;
                     font-family: $fontSans

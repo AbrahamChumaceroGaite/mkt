@@ -7,17 +7,17 @@ import { NgFor, NgIf } from '@angular/common';
 import { prioridad, tipo_a, tipo_b, carrera } from '../utils/data';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { Dropdown, DropdownModule } from 'primeng/dropdown';
+import { PersonService } from '../service/person.service';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-add',
-  standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, ButtonModule, InputTextModule, SelectButtonModule, DropdownModule, NgIf, NgFor],
   templateUrl: './add.component.html',
-  styleUrl: './add.component.scss'
+  styleUrls: ['./add.component.scss']
 })
 export class AddComponent {
   form!: FormGroup;
-  loading = false;
+  loading : boolean = false;
   prioridad = prioridad;
   selectedPrioridad: any;
   tipo_a = tipo_a;
@@ -26,8 +26,12 @@ export class AddComponent {
   selectedTipo_b: any;
   carrera = carrera;
   selectedCarrera: any;
+  ref!: DynamicDialogRef;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private personService: PersonService
+    ) { }
 
   ngOnInit(): void {
     this.loadForm();
@@ -37,13 +41,31 @@ export class AddComponent {
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúñÁÉÍÓÚ\s]*$/)]],
       apellido: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúñÁÉÍÓÚ\s]*$/)]],
-      numero: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúñÁÉÍÓÚ\s]*$/)]],
+      telefono:  ['', Validators.required],
       atencion: ['', Validators.required],
       representante: ['', Validators.required],
       colegio: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúñÁÉÍÓÚ\s]*$/)]],
       carrera: ['', Validators.required],
-      prioridad: ['', Validators.required],
+      prioridad: ['',]
     });
+  }
+
+  submit() {
+    this.loading = true;
+
+
+    this.personService.postPerson(this.form.value).subscribe(
+      (data) => {
+        console.log(data);
+        this.loading = false;
+        this.form.reset();
+        this.ref.close();
+      },
+      (error) => {
+        console.log(error);
+        this.loading = false;
+      }
+    );
   }
 
   isInvalid(fieldName: string) {

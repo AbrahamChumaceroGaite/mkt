@@ -1,30 +1,32 @@
 export const prioridad: any = [
 
-    { label: 'Tercera Edad', value: 'TerceraEdad' },
+    { label: 'Tercera Edad', value: '1' },
 
-    { label: 'Hijos', value: 'Hijos' },
+    { label: 'Hijos', value: '2' },
 
-    { label: 'Embarazo', value: 'Embarazo' },
+    { label: 'Embarazo', value: '3' },
 
-    { label: 'Discapacidad', value: 'Discapacidad' },
+    { label: 'Discapacidad', value: '4' },
+
+    { label: 'Usuario', value: '0' },
 ]
 
 export const tipo_a: any = [
 
-    { label: 'Información', value: 'Informacion' },
+    { label: 'Información', value: '1' },
 
-    { label: 'Inscripción', value: 'Inscripcion' }
+    { label: 'Inscripción', value: '2' }
 ]
 
 export const tipo_b: any = [
 
-    { label: 'Padre', value: 'Padre' },
+    { label: 'Padre', value: '1' },
 
-    { label: 'Madre', value: 'Madre' },
+    { label: 'Madre', value: '2' },
 
-    { label: 'Estudiante', value: 'Estudiante' },
+    { label: 'Estudiante', value: '3' },
 
-    { label: 'Otro', value: 'Otro' }
+    { label: 'Otro', value: '4' }
 ]
 
 export const carrera: any = [

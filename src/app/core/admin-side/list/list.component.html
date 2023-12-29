@@ -2,70 +2,72 @@
 
     <div class="container-item">
         <br>
-        <h2>EN ESPERA: 12
+        <h2>EN ESPERA: {{totalTickets}}
         </h2>
         <p-scrollPanel styleClass="customPanel-attention">
-            @for (item of onWaitList; track item.id ) {
-            <div class="ticket-card-wait">
-                <div class="ticket-card-content">
-                    <div class="ticket-card-title">
-                        <i class='bx bx-male'></i>
-                        <span>{{item.ticket}}</span>
-                    </div>
+            <div *ngFor="let item of onWaitList">
+                <div class="ticket-card-wait">
+                    <div class="ticket-card-content">
+                        <div class="ticket-card-title">
+                            <i [class]="getIcon(item.prioridad)"></i>
+                            <span>{{ getText(item.tipo_atencion, item.id) }}</span>
+                        </div>
 
-                    <div class="ticket-card-name">
-                        <span>{{item.name}}</span>
-                    </div>
+                        <div class="ticket-card-name">
+                            <span>{{item.nombre}}</span>
+                        </div>
 
-                    <div class="custom-button-space">
+                        <div class="custom-button-space">
+                            <pButton pButton pRipple type="button" [loading]="loading"
+                                class="p-button-rounded p-button-danger">
+                                <i class="pi pi-times"></i>
+                            </pButton>
 
-                        <pButton pButton pRipple type="button" [loading]="loading"
-                            class="p-button-rounded p-button-danger">
-                            <i class="pi pi-times"></i>
-                        </pButton>
-
-                        <button pButton pRipple type="button" [loading]="loading"
-                            class="p-button-rounded p-button-success">
-                            <i class="pi pi-check"></i></button>
+                            <button pButton pRipple type="button" [loading]="loading"
+                                class="p-button-rounded p-button-success" (click)="openDialog(item.nombre, item.id)">
+                                <i class="pi pi-check"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-            }
+
+
         </p-scrollPanel>
     </div>
 
     <div class="container-item">
         <br>
         <div class="ticket-card-info">
-            <div class="ticket-card-content">
+            <div class="ticket-card-content" *ngFor="let item of cola">
                 <div class="ticket-card-title">
-                    <i class='bx bx-male'></i>
-                    <span>Nombre: </span>
+                    <i [class]="getIcon(item.prioridad)"></i>
+                    <span>Nombre: {{item.nombre}} </span>
                 </div>
 
                 <div class="ticket-card-asist">
-                    <span>Numero: </span>
-                </div>
-
-
-                <div class="ticket-card-asist">
-                    <span>Tipo de Atención: </span>
+                    <span>Numero: {{item.telefono}}</span>
                 </div>
 
 
                 <div class="ticket-card-asist">
-                    <span>Representante: </span>
+                    <span>Tipo de Atención: {{getTypeAttetion(item.tipo_atencion)}} </span>
+                </div>
+
+
+                <div class="ticket-card-asist">
+                    <span>Representante: {{getRepresetant(item.representante)}}</span>
                 </div>
 
                 <div class="ticket-card-asist">
-                    <span>Colegio: </span>
+                    <span>Colegio: {{item.colegio}}</span>
                 </div>
 
                 <div class="ticket-card-asist">
-                    <span>Carrera de Interes: </span>
+                    <span>Carrera de Interes: {{getCarrera(item.carrera)}}</span>
                 </div>
 
-                <button pButton pRipple type="button" style="margin-left:15px" [loading]="loading" class="p-button-rounded p-button-success">
+                <button pButton pRipple type="button" style="margin-left:15px" [loading]="loading"
+                    class="p-button-rounded p-button-success">
                     <i class="pi pi-pencil"></i></button>
             </div>
         </div>

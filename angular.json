@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mkt": {
+    "mkt-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mkt",
+            "outputPath": "dist/mkt-front",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -34,12 +34,7 @@
               "node_modules/primeng/resources/themes/bootstrap4-dark-purple/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -58,9 +53,12 @@
               "outputHashing": "all"
             },
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -69,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mkt:build:production"
+              "browserTarget": "mkt-front:build:production"
             },
             "development": {
-              "buildTarget": "mkt:build:development"
+              "browserTarget": "mkt-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "mkt:build"
+            "browserTarget": "mkt-front:build"
           }
         },
         "test": {

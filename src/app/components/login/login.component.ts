@@ -1,24 +1,23 @@
-import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Message } from 'primeng/api';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonModule, InputTextModule, NgIf],
+  selector: 'app-login',  
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   form!: FormGroup;
   messages2: Message[] | undefined;
   error: boolean = false;
   loading: boolean = false;
+  ref!: DynamicDialogRef
   constructor(
     private fb: FormBuilder,
+    private AuthService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -33,17 +32,19 @@ export class LoginComponent {
 
   onSubmit(): void {
     this.loading = true;
-/*     this.authService.login(this.form.value).subscribe(
-      (res: any) => {      
-        this.MessagesService.showSuccessLogin();
-        this.loading = false;       
+    this.AuthService.login(this.form.value).subscribe(
+      (res: any) => {          
+      /*   this.MessagesService.showSuccessLogin(); */
+        this.loading = false;      
+        this.AuthService.loginSuccessEvent.emit();
+
       },
       (err: any) => {
         this.loading = false;
         this.error = true;
-        this.MessagesService.showFailedLogin();
+   /*      this.MessagesService.showFailedLogin(); */
       }
-    ); */
+    );
   }
 
   isInvalid(fieldName: string) {

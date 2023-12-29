@@ -33,14 +33,12 @@ import { MenubarModule } from 'primeng/menubar';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { OrderListModule } from 'primeng/orderlist';
 import { OrganizationChartModule } from 'primeng/organizationchart';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { PaginatorModule } from 'primeng/paginator';
 import { PanelModule } from 'primeng/panel';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { PasswordModule } from 'primeng/password';
-import { PickListModule } from 'primeng/picklist';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
@@ -108,14 +106,12 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     MessageModule,
     MessagesModule,
     MultiSelectModule,
-    OrderListModule,
     OrganizationChartModule,
     OverlayPanelModule,
     PaginatorModule,
     PanelModule,
     PanelMenuModule,
     PasswordModule,
-    PickListModule,
     ProgressBarModule,
     RadioButtonModule,
     RatingModule,
