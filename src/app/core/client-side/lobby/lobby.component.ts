@@ -57,7 +57,6 @@ export class LobbyComponent {
   getcolas() {
     this.ColaService.getCola().subscribe((res: any) => {
       this.colas = res
-      console.log(this.colas)
     })
   }
 
@@ -65,7 +64,6 @@ export class LobbyComponent {
     this.ticketService.getTickets().subscribe((res: any) => {
       this.onWaitList = res
       this.totalTickets = this.onWaitList.length;
-      console.log(this.onWaitList)
     })
   }
 

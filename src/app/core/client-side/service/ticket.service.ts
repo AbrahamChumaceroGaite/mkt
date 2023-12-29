@@ -30,8 +30,7 @@ export class TicketService {
       .pipe(map((response: any) => response.mensaje));
   }
 
-
-  deleteTicket(id: number) {
+  deleteTicket(id: any) {
     return this.httpClient.delete(
       this.apiUrl + '/delete/' + id
     );

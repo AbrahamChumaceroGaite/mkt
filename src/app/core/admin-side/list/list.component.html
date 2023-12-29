@@ -19,7 +19,7 @@
 
                         <div class="custom-button-space">
                             <pButton pButton pRipple type="button" [loading]="loading"
-                                class="p-button-rounded p-button-danger">
+                                class="p-button-rounded p-button-danger" (click)="deleteDialog(item.nombre, item.id)">
                                 <i class="pi pi-times"></i>
                             </pButton>
 
@@ -41,7 +41,7 @@
             <div class="ticket-card-content" *ngFor="let item of cola">
                 <div class="ticket-card-title">
                     <i [class]="getIcon(item.prioridad)"></i>
-                    <span>Nombre: {{item.nombre}} </span>
+                    <span>Nombre: {{item.nombrep}} </span>
                 </div>
 
                 <div class="ticket-card-asist">
@@ -65,10 +65,10 @@
                 <div class="ticket-card-asist">
                     <span>Carrera de Interes: {{getCarrera(item.carrera)}}</span>
                 </div>
-
+<!-- 
                 <button pButton pRipple type="button" style="margin-left:15px" [loading]="loading"
                     class="p-button-rounded p-button-success">
-                    <i class="pi pi-pencil"></i></button>
+                    <i class="pi pi-pencil"></i></button> -->
             </div>
         </div>
         <br>

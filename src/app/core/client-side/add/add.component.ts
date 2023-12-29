@@ -56,13 +56,11 @@ export class AddComponent {
 
     this.personService.postPerson(this.form.value).subscribe(
       (data) => {
-        console.log(data);
         this.loading = false;
         this.form.reset();
         this.ref.close();
       },
       (error) => {
-        console.log(error);
         this.loading = false;
       }
     );

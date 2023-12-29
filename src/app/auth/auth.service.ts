@@ -30,7 +30,6 @@ export class AuthService {
   
     return this.http.post<LoginResponse>(url, body).pipe(
       tap(res => {
-        console.log(res)
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('iduser', res.iduser);
         sessionStorage.setItem('nombre', res.nombre);

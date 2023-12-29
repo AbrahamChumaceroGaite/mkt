@@ -16,7 +16,7 @@
         <ng-container *ngIf="AuthService.isAuthenticated()">
             <div class="nav-content">
 
-                <span>{{AuthService.getUsername()}}</span>
+                <span class="UserName">{{AuthService.getUsername()}}</span>
 
                 <button (click)="logout()" pButton pRipple type="button" icon="pi pi-sign-in" style="color:white"
                     class="p-button-rounded p-button-info p-button-outlined">

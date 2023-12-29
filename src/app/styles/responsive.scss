@@ -38,12 +38,12 @@
         }
     
         .ticket-card-wait {
-            width: 350px;
+            width: 300px;
             height: 150px;
         }
 
         .ticket-card-attention {
-            width: 350px;
+            width: 340px;
             height: 200px;
         }
 
@@ -90,6 +90,10 @@
             }
     
         }
+    }
+
+    .UserName{
+        display: none;
     }
 }
 

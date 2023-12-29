@@ -20,7 +20,6 @@ export class ListComponent {
   constructor(
     private AuthService: AuthService,
     private ConfirmService: ConfirmService,
-    private dialogService: DialogService,
     private colaService: ColaService,
     private ticketService: TicketService,
     private socketService: SocketMasterService,
@@ -51,7 +50,7 @@ export class ListComponent {
     this.ticketService.getTickets().subscribe((res: any) => {
       this.onWaitList = res
       this.totalTickets = this.onWaitList.length;
-      console.log(this.onWaitList)
+      this.loading = false;
     })
   }
 
@@ -59,7 +58,7 @@ export class ListComponent {
     const id = this.AuthService.getIdUser()
     this.colaService.getColatByIdUser(id).subscribe((res: any) => {
       this.cola = res;
-      console.log( this.cola)
+      console.log(this.cola)
     })
   }
 
@@ -111,7 +110,6 @@ export class ListComponent {
     }
   }
 
-
   getCarrera(carrera: string): string {
     if (carrera == 'ADM') {
       return 'Administración de Empresas';
@@ -146,7 +144,6 @@ export class ListComponent {
     }
   }
 
-
   openDialog(item: any, idticket?: number) {
     this.ConfirmService.opneDialog(item).then((res) => {
       if (res == 'Confirmed') {    
@@ -156,6 +153,24 @@ export class ListComponent {
         }
         this.loading = true
         this.colaService.postCola(body).subscribe((res: any) => {
+          this.loading = false
+          this.getCola();
+        }, (err)=>{
+          this.loading = false
+        });
+      }
+    });
+  }
+
+  deleteDialog(item: any, idticket?: number) {
+    this.ConfirmService.deleteDialog(item).then((res) => {
+      if (res == 'Confirmed') {    
+        const body = {
+          idusuario : this.AuthService.getIdUser(),
+          idticket: idticket          
+        }
+        this.loading = true
+        this.ticketService.deleteTicket(idticket).subscribe((res: any) => {
           this.loading = false
           this.getCola();
         }, (err)=>{

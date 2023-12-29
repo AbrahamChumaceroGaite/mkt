@@ -39,8 +39,8 @@ export class ConfirmService {
     public deleteDialog(item: any) {
         return new Promise((resolve, reject) => {
             Swal.fire({
-                title: '¿Esta Seguro de Eliminarlo?',
-                icon: 'warning',
+                title: '¿Saltar Ticket de ' + item + '?',
+                icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Confirmar',

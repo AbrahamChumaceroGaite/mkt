@@ -31,10 +31,6 @@ export class ColaService {
   }
 
 
-  deleteTicket(id: number) {
-    return this.httpClient.delete(
-      this.apiUrl + '/delete/' + id
-    );
-  }
+
 
 }
