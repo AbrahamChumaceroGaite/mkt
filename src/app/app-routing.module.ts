@@ -15,9 +15,9 @@ export const routes: Routes = [
       ]
   },
 
-  {path: '***', redirectTo: 'lobby'},
-
-  {path: '', redirectTo: 'lobby', pathMatch: 'full'},
+  { path: '', redirectTo: 'lobby', pathMatch: 'full' },
+  
+  { path: '**', redirectTo: 'lobby' },
 
 ];
 
