@@ -65,7 +65,9 @@ export const carrera: any = [
 
     { label: 'Medicina', value: 'ME' },
 
-    { label: 'Psicología', value: 'PS' }
+    { label: 'Psicología', value: 'PS' },
+
+    { label: 'Sin Carrera', value: 'Null' }
 ]
 
 

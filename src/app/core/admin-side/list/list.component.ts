@@ -139,6 +139,8 @@ export class ListComponent {
       return 'Diseño Gráfico y Comunicación Visual';
     } else if (carrera == 'CS') {
       return 'Comunicación Social';
+    }  else if (carrera == 'Null') {
+      return 'Sin Carrera';
     } else {
       return '';
     }
