@@ -6,6 +6,7 @@ import { SocketMasterService } from '../../../services/socket.service';
 import { TicketService } from '../service/ticket.service';
 import { ColaService } from '../../admin-side/service/cola.service';
 import { SoundService } from 'src/app/services/sound.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-lobby',
@@ -17,6 +18,7 @@ export class LobbyComponent {
   onWaitList: any[] = [];
   totalTickets: number = 0;
   loading = false;
+  changingColor: boolean = false;
 
   constructor(
     private dialogService: DialogService,
@@ -24,7 +26,8 @@ export class LobbyComponent {
     private ticketService: TicketService,
     private soundService: SoundService,
     private ColaService: ColaService,
-    public AuthService: AuthService
+    public AuthService: AuthService,
+    private cdr: ChangeDetectorRef
   ) {
     this.getTickets();
     this.getcolas();
@@ -37,8 +40,16 @@ export class LobbyComponent {
       this.getcolas();
       const soundUrl = '../../../../assets/media/sfx.mp3'; 
       this.soundService.playSound(soundUrl);
-    });
 
+      this.changingColor = true;
+
+      setTimeout(() => {
+        this.changingColor = false;
+        // Forzar la actualización de la vista
+        this.cdr.detectChanges();
+      }, 3000); // Cambia a false después de 3 segundos
+    });
+  
   }
 
   ngOnit(): void {

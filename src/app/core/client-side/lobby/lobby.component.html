@@ -40,9 +40,9 @@
         </video>
         <br>
 
-        <div class="container-attention">
+        <div class="container-attention"  >
             <div *ngFor="let item of colas">
-                <div class="ticket-card-attention">
+                <div class="ticket-card-attention" [ngClass]="{'changing-color': changingColor}">
                     <div class="ticket-card-content">
                         <div class="ticket-card-title">
                             <i [class]="getIcon(item.prioridad)"></i>

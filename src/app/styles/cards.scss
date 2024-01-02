@@ -57,7 +57,7 @@ $fontSans: 'Source Sans 3', sans-serif;
         align-items: center;
         padding-top: 15px;
 
-      
+
         .ticket-card-title {
             display: flex;
             flex-direction: row;
@@ -68,8 +68,8 @@ $fontSans: 'Source Sans 3', sans-serif;
             font-family: $fontSans
         }
 
-        .ticket-card-asist{
-            span{
+        .ticket-card-asist {
+            span {
                 margin: 15px;
                 font-size: 1.8rem;
                 font-weight: bold;
@@ -87,7 +87,17 @@ $fontSans: 'Source Sans 3', sans-serif;
             font-family: $fontSans
         }
     }
+
+
 }
+
+
+.ticket-card-attention.changing-color {
+    transition: background-color 1s ease; // Puedes ajustar la duración de la transición según tus preferencias
+    background-color: $negroprimario; // Cambia al color amarillo durante la transición
+  }
+
+
 
 .ticket-card-info {
     width: 100%;
@@ -104,7 +114,7 @@ $fontSans: 'Source Sans 3', sans-serif;
         align-items: flex-start;
         padding-top: 15px;
 
-      
+
         .ticket-card-title {
             display: flex;
             flex-direction: row;
@@ -115,8 +125,8 @@ $fontSans: 'Source Sans 3', sans-serif;
             font-family: $fontSans
         }
 
-        .ticket-card-asist{
-            span{
+        .ticket-card-asist {
+            span {
                 margin: 15px;
                 font-size: 1.8rem;
                 font-weight: bold;
