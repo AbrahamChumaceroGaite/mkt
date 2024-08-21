@@ -30,9 +30,9 @@ export class AuthService {
   
     return this.http.post<LoginResponse>(url, body).pipe(
       tap(res => {
-        sessionStorage.setItem('token', res.token);
-        sessionStorage.setItem('iduser', res.iduser);
-        sessionStorage.setItem('nombre', res.nombre);
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('iduser', res.iduser);
+        localStorage.setItem('nombre', res.nombre);
         const id =  res.iduser
         this.router.navigate(['/lobby']);
         this.loginSuccessEvent.emit();
@@ -43,7 +43,7 @@ export class AuthService {
 
 /*   getPermissions(id: any){
     this.AccesService.getPermissions(id).subscribe((data: any) => {
-      sessionStorage.setItem('pageaccess', JSON.stringify(data));
+      localStorage.setItem('pageaccess', JSON.stringify(data));
       this.router.navigate(['/home']);
     }, (error: any) => {
       console.log(error);
@@ -52,14 +52,14 @@ export class AuthService {
   } */
 
   logout(): void {
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('iduser');
-    sessionStorage.removeItem('name');
+    localStorage.removeItem('token');
+    localStorage.removeItem('iduser');
+    localStorage.removeItem('name');
     this.router.navigate(['/lobby']);
   }
 /* 
   getUserPermissions() {
-    const permisosString = sessionStorage.getItem('pageaccess');
+    const permisosString = localStorage.getItem('pageaccess');
     this.userPermissions = permisosString ? JSON.parse(permisosString) : null;
     // Verifica si permisosString es null y proporciona un valor predeterminado si es así
     return permisosString ? JSON.parse(permisosString) : null;
@@ -72,26 +72,26 @@ export class AuthService {
   } */
   
   getIdUser(): any {
-    const idUser = sessionStorage.getItem('iduser');
+    const idUser = localStorage.getItem('iduser');
     return idUser !== null ? idUser : '';
   }
 
   getUsername(): string {
-    const username = sessionStorage.getItem('nombre');
+    const username = localStorage.getItem('nombre');
     return username !== null ? username : '';
   }
 
   getRol(): string {
-    const rol = sessionStorage.getItem('rol');
+    const rol = localStorage.getItem('rol');
     return rol !== null ? rol : '';
   }
 
   getToken(): string | null {
-    return sessionStorage.getItem('token');
+    return localStorage.getItem('token');
   }
 
   isAuthenticated(): boolean {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     return !!token; 
   }
 
