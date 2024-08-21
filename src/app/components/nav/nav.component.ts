@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { LoginComponent } from '../login/login.component';

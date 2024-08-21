@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './list/list.component';
-import { AuthGuard } from 'src/app/guard/auth-guard.guard';
+import { AuthGuard } from '../../guard/auth-guard.guard';
 
 const routes: Routes = [
   {path: 'list/persons', component: ListComponent, canActivate:[AuthGuard]},

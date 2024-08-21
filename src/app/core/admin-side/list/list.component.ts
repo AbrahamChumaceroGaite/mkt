@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ColaService } from '../service/cola.service';
 import { TicketService } from '../../client-side/service/ticket.service';
-import { SocketMasterService } from 'src/app/services/socket.service';
-import { AuthService } from 'src/app/auth/auth.service';
+import { SocketMasterService } from '../../../services/socket.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-list',

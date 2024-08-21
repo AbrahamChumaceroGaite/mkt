@@ -1,0 +1,108 @@
+<br>
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-columns">
+    <div class="columns">
+
+        <div class="form-content">
+            <label><i class="pi pi-user"></i>Nombre</label>
+            <input pInputText type="text" class="p-inputtext-sm" [class.ng-invalid]="isInvalid('nombre')"
+                formControlName="nombre" />
+            <small *ngIf="form?.get('nombre')?.invalid && (form?.get('nombre')?.dirty || form?.get('nombre')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('nombre')?.hasError('required')">El Nombre es requerido</ng-container>
+            </small>
+        </div>
+
+        <div class="form-content">
+            <label>
+                <i class="pi pi-phone"></i>Telefono</label>
+            <input pInputText type="telefono" class="p-inputtext-sm" formControlName="telefono"/>
+            <small *ngIf="form?.get('telefono')?.invalid && (form?.get('telefono')?.dirty || form?.get('telefono')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('telefono')?.hasError('required')">El Telefono es requerido</ng-container>
+            </small>
+        </div>
+
+        <div class="form-content">
+            <label>
+                <i class="pi pi-check-square"></i>Prioridad</label>
+            <p-dropdown [options]="prioridad" [(ngModel)]="selectedPrioridad" placeholder="Selecciona Prioridad"
+                optionLabel="label" formControlName="prioridad" [showClear]="true"  optionValue="value"></p-dropdown>
+            <small
+                *ngIf="form?.get('prioridad')?.invalid && (form?.get('prioridad')?.dirty || form?.get('prioridad')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('prioridad')?.hasError('required')">La Prioridad es
+                    requerida</ng-container>
+            </small>
+        </div>
+
+        <div class="form-content">
+            <label>
+                <i class="pi pi-info-circle"></i>Tipo de Atención</label>
+            <p-dropdown [options]="tipo_a" [(ngModel)]="selectedTipo_a" placeholder="Selecciona Tipo de Atención"
+                optionLabel="label" formControlName="atencion" [showClear]="true"  optionValue="value"></p-dropdown>
+            <small
+                *ngIf="form?.get('atencion')?.invalid && (form?.get('atencion')?.dirty || form?.get('atencion')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('atencion')?.hasError('required')">El Tipo de Atención es
+                    requerido</ng-container>
+            </small>
+        </div>
+    </div>
+
+    <div class="columns">
+
+        <div class="form-content">
+            <label>
+                <i class="pi pi-user-plus"></i>Apellido</label>
+            <input pInputText type="text" class="p-inputtext-sm" [class.ng-invalid]="isInvalid('apellido')"
+                formControlName="apellido"/>
+            <small
+                *ngIf="form?.get('apellido')?.invalid && (form?.get('apellido')?.dirty || form?.get('apellido')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('apellido')?.hasError('required')">El Apellido es
+                    requerido</ng-container>
+            </small>
+        </div>
+
+        <div class="form-content">
+            <label>
+                <i class="pi pi-building"></i>Colegio</label>
+            <input pInputText type="text" class="p-inputtext-sm" formControlName="colegio"/>
+            <small
+                *ngIf="form?.get('colegio')?.invalid && (form?.get('colegio')?.dirty || form?.get('colegio')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('colegio')?.hasError('required')">El Colegio es
+                    requerido</ng-container>
+            </small>
+        </div>
+
+        <div class="form-content">
+            <label>
+                <i class="pi pi-tag"></i>Carrera</label>
+            <p-dropdown [options]="carrera" [(ngModel)]="selectedCarrera" placeholder="Selecciona la Carrera" [filter]="true" filterBy="label"
+                optionLabel="label" formControlName="carrera" [showClear]="true"  optionValue="value"></p-dropdown>
+            <small
+                *ngIf="form?.get('carrera')?.invalid && (form?.get('carrera')?.dirty || form?.get('carrera')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('carrera')?.hasError('required')">La Carrera es requerido</ng-container>
+            </small>
+        </div>
+
+        <div class="form-content">
+            <label>
+                <i class="pi pi-user-edit"></i>Representante</label>
+            <p-dropdown [options]="tipo_b" [(ngModel)]="selectedTipo_b" placeholder="Selecciona el Representante"
+                optionLabel="label" formControlName="representante" [showClear]="true"  optionValue="value"></p-dropdown>
+            <small
+                *ngIf="form?.get('representante')?.invalid && (form?.get('representante')?.dirty || form?.get('representante')?.touched)"
+                class="text-danger">
+                <ng-container *ngIf="form?.get('representante')?.hasError('required')">El Representante es
+                    requerido</ng-container>
+            </small>
+        </div>
+
+        <button pButton pRipple type="button" label="Registrar" [loading]="loading" [disabled]="!form.valid"
+        class="p-button-rounded p-button-success" (click)="submit()"></button>
+    
+    </div>
+</form>

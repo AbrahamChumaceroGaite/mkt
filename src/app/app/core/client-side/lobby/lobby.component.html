@@ -1,0 +1,67 @@
+<div class="main-container">
+
+    <div class="container-item">
+        <br>
+        <div class="custom-button-space">
+            <h2>EN ESPERA: {{totalTickets}}</h2>
+
+            <ng-container *ngIf="AuthService.isAuthenticated()">
+                <button pButton pRipple type="button" class="p-button-rounded p-button-success" styleClass="p-button-sm"
+                    (click)="addPerson()">
+                    <i class="pi pi-user-plus" style="font-size: 0.7rem"></i>
+                </button>
+            </ng-container>
+        </div>
+
+        <p-scrollPanel styleClass="customPanel">
+            <div *ngFor="let item of onWaitList">
+                <div class="ticket-card-wait">
+                    <div class="ticket-card-content">
+                        <div class="ticket-card-title">
+                            <i [class]="getIcon(item.prioridad)"></i>
+                            <span> {{getText(item.tipo_atencion, item.id)}}</span>
+                        </div>
+
+                        <div class="ticket-card-name">
+                            <span>{{item.nombre}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </p-scrollPanel>
+        <img src="assets/images/qr.svg" alt="lobby" class="lobby-img">
+    </div>
+
+    <div class="container-item">
+        <br>
+        <video #videoPlayer controls autoplay muted (ended)="onVideoEnded(videoPlayer)">
+            <source #videoSource [src]="currentVideo" type="video/mp4">
+        </video>
+        <br>
+
+        <div class="container-attention"  >
+            <div *ngFor="let item of colas">
+                <div class="ticket-card-attention" [ngClass]="{'changing-color': changingColor}">
+                    <div class="ticket-card-content">
+                        <div class="ticket-card-title">
+                            <i [class]="getIcon(item.prioridad)"></i>
+                            <span>{{ getText(item.tipo_atencion, item.id) }}</span>
+                        </div>
+                        <div class="ticket-card-asist">
+                            <span> {{item.nombre}} </span>
+                        </div>
+
+                        <div class="ticket-card-name">
+                            <span>{{item.cola}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

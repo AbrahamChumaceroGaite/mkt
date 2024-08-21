@@ -2,21 +2,20 @@ import { AddComponent } from './add/add.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientSideRoutingModule } from './client-side-routing.module';
-import { LobbyComponent } from './lobby/lobby.component';
-import { PrimengModule } from 'src/app/frameworks/primeng.module';
+import { PrimengModule } from '../../frameworks/primeng.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { LobbyComponent } from './lobby/lobby.component';
 
 @NgModule({
   declarations: [
     AddComponent,
     LobbyComponent
   ],
-  imports: [
-    
+  imports: [   
     CommonModule,
     ClientSideRoutingModule,
     ReactiveFormsModule, 

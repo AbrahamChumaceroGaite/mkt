@@ -1,0 +1,30 @@
+<p-menubar>
+    <ng-template pTemplate="start">
+        <div class="nav-content">
+            <img src="assets/images/ucb_blanco.png" height="50" class="mr-2" [routerLink]="['/lobby']">
+            <ng-container *ngIf="AuthService.isAuthenticated()">
+                <span [routerLink]="['/list/persons']" routerLinkActive="router-link-active">Control</span>
+            </ng-container>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <ng-container *ngIf="!AuthService.isAuthenticated()">
+            <button (click)="dialog()" pButton pRipple type="button" icon="pi pi-user" style="color:white"
+                class="p-button-rounded p-button-info p-button-outlined">
+            </button>
+        </ng-container>
+        <ng-container *ngIf="AuthService.isAuthenticated()">
+            <div class="nav-content">
+
+                <span class="UserName">{{AuthService.getUsername()}}</span>
+
+                <button (click)="logout()" pButton pRipple type="button" icon="pi pi-sign-in" style="color:white"
+                    class="p-button-rounded p-button-info p-button-outlined">
+                </button>
+            </div>
+        
+        </ng-container>
+    </ng-template>
+</p-menubar>
+
+<router-outlet></router-outlet>

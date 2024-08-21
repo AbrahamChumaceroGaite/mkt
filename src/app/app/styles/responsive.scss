@@ -1,0 +1,99 @@
+@media screen and (max-width: 968px) {
+    .main-container{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+
+        .container-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: baseline;
+            align-items: center;
+            
+            .customPanel {
+                height: 500px;
+            }
+    
+            video{
+                padding: 10px;
+                width: 90%;
+                border-radius: 50px;
+                display: none   ;
+            }
+    
+            img{
+                width: 40%;
+                margin-bottom: 50px;
+                margin-top: 20px;
+                display: none;
+            }
+    
+            .container-attention{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+            }
+        }
+    
+        .ticket-card-wait {
+            width: 300px;
+            height: 150px;
+        }
+
+        .ticket-card-attention {
+            width: 340px;
+            height: 200px;
+        }
+
+    }
+
+    .form-dialog{
+        width: 100%;
+        height: 100%;
+    }
+
+    .ticket-card-info {
+        width: 100%;
+        height: 800px;
+        background-color: $azulprimario;
+        border: solid 5px $amarilloprimario;
+        border-radius: 25px;
+        margin-bottom: 20px;
+    
+        .ticket-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            padding-top: 15px;
+    
+          
+            .ticket-card-title {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $amarilloprimario;
+                font-size: 60px;
+                font-weight: bold;
+                font-family: $fontSans
+            }
+    
+            .ticket-card-asist{
+                span{
+                    margin: 15px;
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    font-family: $fontSans
+                }
+            }
+    
+        }
+    }
+
+    .UserName{
+        display: none;
+    }
+}
+

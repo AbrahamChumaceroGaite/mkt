@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { AddComponent } from '../add/add.component';
 import { SocketMasterService } from '../../../services/socket.service';
 import { TicketService } from '../service/ticket.service';
 import { ColaService } from '../../admin-side/service/cola.service';
-import { SoundService } from 'src/app/services/sound.service';
+import { SoundService } from '../../../services/sound.service';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
